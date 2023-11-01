@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ID CARD</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+	<style type="text/css">
+		html{
+			background: gray;
+		}
+		@media print {
+			@page {
+				margin: 0;
+				padding: 0;
+				width: 204px!important;
+				height: 321px!important;
+			}
+		}
+		@font-face {
+  font-family: 'CustomFont';
+  src: url('/duvall/Duvall\ Bold.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			/*width: 204px;
+			height: 321px;*/
+			width: 5.4cm;
+			height: 8.5cm;
+			background: #ffffff;
+			margin: 0 auto;
+			position: relative;
+			font-family: sans-serif;
+		}
+		.vector1 {
+			    position: fixed;
+			    top: 5px;
+			    width: 204px;
+			    height: fit-content;
+			}
+		.id-card{
+			
+			z-index: 99;
+			position: relative;
+			height: 100%;
+		}
+		.section{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 0px;
+			z-index: 99;
+			position: relative;
+			top: 15px;
+		}
+		.header{
+			/* display: flex;
+			justify-content: flex-end; */
+			height: 50px;	
+			border-radius: 8px;
+			width: 180px;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			top: 5px;
+		}
+		h1.main_txt {
+			font-size: 20px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -47px;
+    color: #fff;
+    position: absolute;
+    left: 55px;
+}
+.sub_txt{
+    margin-top: -25px;
+    font-size: 9px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    position: absolute;
+    left: 15px;
+}
+.bw_logo{
+	width: 30px;
+	height: 30px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+}
+.prof_pic_back{
+	width: 130px;
+    height: 130px;
+}
+.prof_pic{
+    width: 116px;
+    height: 116px;
+    margin-top: -124px;
+    border-radius: 60px;
+}
+.last_txt{
+    margin-top: 0px;
+    font-family: 'CustomFont', sans-serif;
+    width: 206px;
+    font-size: 11px;
+    text-align: center;
+}
+		.logo{
+			width:35px;
+		}
+		.section .dp{
+			width: 110px;
+			height: 110px;
+			border-radius: 50%;
+			object-fit: fill;
+		}
+		.footer{
+			position:absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 30px;
+			/*background-color: green;*/
+
+			/* display: flex; */
+			justify-content: space-around;
+			/* gap: 10px; */
+			align-items: center;
+		}
+		.footer h5{
+			line-height: 10px;
+		}
+		button.job_position_button{
+			font-size:9px;
+			background-color: #115d36;
+			background: url(green-bg.png);
+			color: white;
+			border-radius: 20px;
+			border:none;
+			padding: 5px 20px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="id-card" id="app">
+		<div class="header">
+			<img class="header" src="darkgreen_bg.png" alt="">
+			<h1 class="main_txt">KAFFE</h1><br>
+			<h6 class="sub_txt">KERALA AGRO FOUNDATION FOR <br>FAIRTRADE ENHANCEMENT</h6>
+		</div>
+		<div class="section">
+			<img class="prof_pic_back" src="Screenshot 2023-10-26 165913.png" alt="">
+			<img class="prof_pic" src="prof_pic.jpeg" alt="">
+
+			<h6 style="font-size: 20px;    margin-top: 20px;margin-bottom: 5px;font-weight: 500;">ANU JOHN</h6>
+			<h6 style="margin-top:-5px">AEO</h6>
+			<img class="bw_logo" src="logo.png" alt="">
+
+			<h5 class="last_txt">BIOWIN AGRO RESEARCH</h5>
+			<h5 style="color: #565e65;font-size: 7px;font-weight: 200;margin-top: -15px;margin-bottom: 0px;text-align: center;letter-spacing: 1px;word-spacing: 0px;">www.biowinkerala.com</h5>
+			<!-- <button class="job_position_button" style="border: 0;background: transparent;position: relative;">
+				<img src="green-bg.png" style="
+					height: 30px;
+					min-width: 90px;
+					border-radius: 15px;"
+					:style="'width: '+getTxtWidth()"
+				>
+				
+				<div id="job_postion_text" style="position: absolute;
+					height: 30px;
+					max-width: 200px;"
+					:style="'width: '+getTxtWidth()+';bottom:'+getBottom()"
+				>
+					<div v-for="(job_position,key) in form_data.job_positions_detail"> {{job_position.name}} <span v-if="form_data.job_positions_detail.length>(key+1)">/</span></div>
+				</div>
+			</button> -->
+			
+
+		</div>
+		<!-- <div class="section">
+			<h5 style="font-size: 10px;font-weight: 600;margin: 5px;">BIOWIN AGRO RESEARCH</h5>
+			<h5 style="font-size: 8px;font-weight: 600;margin-top: 0px;margin-bottom: 3px;text-align:center;">
+				M.P.5/587.D,Mysore Road, Vemom Post, Mananthavady
+			</h5>
+			<h5 style="font-size: 8px;font-weight: 600;margin-top: 0px;margin-bottom: 3px;text-align:center;">
+				Wayanad Kerala,India. 670 645
+			</h5>
+			
+		</div> -->
+		<div class="footer">
+			<!-- <img src="green-bg.png" style="height: 100%;width: 100%;"> -->
+			<!-- <div>
+				<h5 style="font-size: 7px;color: white;font-weight: 500;margin-top: 0px;margin-bottom: 0px;">Emergency Contact No</h5>
+				<h5 style="font-size: 8px;color: white;font-weight: 500;margin-top: 0px;margin-bottom: 0px;">{{form_data.mobile}}</h5>
+			</div>
+			<div>
+				<h5 style="font-size: 7px;color: white;font-weight: 500;margin-top: 0px;margin-bottom: 0px;">Authorized<br>Signatory</h5>
+			</div>
+			<h5 style="font-size: 7px;color: white;font-weight: 500;margin-top: 0px;margin-bottom: 0px;">Signator</h5> -->
+			<div style="
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 30px;display: flex;justify-content: center;align-items: center;gap:1px">
+				<div style="display:flex;align-items: center;gap:3px;color: rgb(235, 233, 233);">
+					<!-- <img src="email2.png" style="width:10px;"> -->
+					<!-- <h5 style="font-size: 7px;font-weight: 600;margin-top: 0px;margin-bottom: 0px;text-align:center;">www.biowinkerala.com</h5> -->
+				</div>
+				<div style="width:10px"></div>
+				<div style="display:flex;align-items: center;gap:3px;color: rgb(235, 233, 233);">
+					<!-- <img src="mozilla2.png" style="width:10px;"> -->
+					<!-- <h5 style="font-size: 7px;font-weight: 600;margin-top: 0px;margin-bottom: 0px;text-align:center;">biowinkerala@gmail.com</h5> -->
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+<script>
+	var myObject = new Vue({
+		el: '#app',
+		data() {
+		return {
+			// api_url:'https://api.biowinnew.capcee.com',
+			api_url:'https://api.biowinerp.com',
+		//   api_url:'http://127.0.0.1:8000',
+			is_print_btn:true,
+			total_pages:0,
+			is_print:'',
+			form_data:{id:null, job_positions:[], job_positions_detail:[], image:null},
+		};
+		},
+		mounted(){
+		var url_string = window.location.href
+		var url = new URL(url_string);
+		var em_id = url.searchParams.get("employee")
+		this.is_print = url.searchParams.get("is_print")
+		
+		var is_loggin = false
+		// if(localStorage.getItem("userInfo"))
+		// {
+		// 	if(localStorage.getItem("userInfo").length>0){
+		// 	is_loggin = true
+		// 	this.form_data.id = em_id
+		// 	this.getForm()
+		// 	}
+		// }
+		this.form_data.id = 58
+			this.getForm()
+		if(!is_loggin){
+			// this.$router.push('/login')
+		}
+		},
+		methods: {
+		printNow() {
+			this.is_print_btn = false
+			setTimeout(function() {
+			window.print()
+			}, 100)
+			window.onafterprint = back;
+			var self = this
+			function back() {
+			self.is_print_btn = true
+			}
+		},
+		getTxtWidth(){
+			const elmnt = document.getElementById("myDIV")
+			console.log(elmnt)
+			if(elmnt){
+				return elmnt.clientWidth+'px'
+			}
+			return '160px'
+		},
+		getBottom(){
+			var bottom = '-3px'
+			if(this.form_data.job_positions_detail.length==2){
+			 bottom = '2px'
+			}else if(this.form_data.job_positions_detail.length==3){
+			 bottom = '6px'
+			}
+			return bottom
+		},
+		getForm() {
+		var headers = new Headers();
+		headers.append("Authorization", "Token "+this.$root.token);
+		fetch(this.api_url+'/employee/employees/'+this.form_data.id+'/', {
+			method : 'get',
+			headers: headers,
+		})
+		.then((response) => {
+			return response.json()
+		})
+		.then((jsonData) => {
+			this.form_data = jsonData
+			if(this.is_print){
+				this.printNow()
+			}
+		})
+		},
+		setHeight(){
+	
+		},
+		romanize(num) {
+			var lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},roman = '',i;
+			for ( i in lookup ) {
+			while ( num >= lookup[i] ) {
+				roman += i;
+				num -= lookup[i];
+			}
+			}
+			return roman;
+		},
+		dateFormate(date,is_time=false){
+			if(!date){
+			return ''
+			}
+			var mydate = new Date(date);
+			var month = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+			"July", "Aug", "Sept", "Oct", "Nov", "Dec"][mydate.getMonth()];
+			var time = '';
+			if(is_time){
+			var hour = mydate.getHours();
+			var min = mydate.getMinutes();
+			var sec = mydate.getSeconds();
+			time = mydate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+			if(hour==0&&min==0&&sec==0){
+				time='';
+			}
+			}
+			var str = mydate.getDate()+' '+month + ' ' +mydate.getFullYear()+' '+time;
+	
+			return str
+		},
+		},
+	})
+</script>
+
+</body>
+</html>
